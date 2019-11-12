@@ -152,22 +152,27 @@ if (i==day.length) {
  < N или == N?». В зависимости от того, что указал пользователь, уменьшаете диапазон. Начальный диапазон от 0 до 100, 
  поделили пополам и получили 50. Если пользователь указал, что его число > 50, то изменили диапазон на от 51 до 100.
   И так до тех пор, пока пользователь не выберет == N.*/
- /* let X = prompt("задайте число от 0 до 100");
+ let X =parseInt(prompt("задайте число от 0 до 100"));
   let N=50;
+  let lower_range=0;
+  let upper_range=100;
+
  
-  while (X!==N) {
-   let answer = prompt(`ваше число >, < или = ${N}?`,">");
+   
+   while (X!==N) {
+     
+   let answer = prompt(`ваше число >, < или = ${N}?`,">"); //50  75  
 if (answer ==">") {
-   N=Math.ceil((100-N)/2);
+  lower_range=N;//50 
+  N=Math.ceil((upper_range-lower_range)/2 +lower_range);// (100-50)/2+50=75   
   
+} else if (answer =="<") {
+  upper_range=N; //75
+  N=Math.ceil((upper_range-lower_range)/2 +lower_range)// (75-50)/2+50;
 }
-else if (answer =="<") {
-   N=Math.ceil(N/2);
-  
-}
-else if (answer=="=") {
-  console.log(`${N}!!!!!`);
+else  {
+
   break;
 }
   }
-console.log(N);*/
+console.log(N);
